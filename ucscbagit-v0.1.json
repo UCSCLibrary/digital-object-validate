@@ -1,0 +1,87 @@
+{
+  "Accept-BagIt-Version": [
+    "0.97",
+    "1.0"
+  ],
+  "Accept-Serialization": [
+    "application/tar"
+  ],
+  "Allow-Fetch.txt": false,
+  "Serialization": "forbidden",
+  "Manifests-Allowed": [
+    "md5"
+  ],
+  "Tag-Manifests-Allowed": [
+    "md5"
+  ],
+  "Manifests-Required": [
+    "md5"
+  ],
+  "Tag-Manifests-Required": [],
+  "Tag-Files-Allowed": [
+    "*"
+  ],
+  "BagIt-Profile-Info": {
+    "BagIt-Profile-Identifier": "https://github.com/UCSCLibrary/speccoll/blob/main/ucscbagit-v0.1.json",
+    "BagIt-Profile-Version": "1.3.0",
+    "Contact-Email": "speccoll@library.ucsc.edu",
+    "Contact-Name": "Susan Chesley Perry",
+    "External-Description": "Bagit Profile for UCSC Library Digitally Preserved Archival Content",
+    "Source-Organization": "University of California Santa Cruz Library",
+    "Version": "0.1"
+  },
+  "Bag-Info": {
+    "Bag-Count": {
+      "required": false
+    },
+    "Bag-Group-Identifier": {
+      "required": false
+    },
+    "Bag-Size": {
+      "required": false
+    },
+    "Bagging-Date": {
+      "required": false
+    },
+    "Bagging-Software": {
+      "required": false
+    },
+    "Contact-Email": {
+      "required": false
+    },
+    "Contact-Name": {
+      "required": false
+    },
+    "Contact-Phone": {
+      "required": false
+    },
+    "External-Description": {
+      "required": false
+    },
+    "External-Identifier": {
+      "required": false
+    },
+    "Internal-Sender-Description": {
+      "required": false
+    },
+    "Internal-Sender-Identifier": {
+      "required": false
+    },
+    "Organization-Address": {
+      "required": false
+    },
+    "Payload-Oxum": {
+      "required": false
+    },
+    "Source-Organization": {
+      "required": false
+    },
+    "Payload-Identifier": {
+      "required": false
+    },
+    "Bag-Producing-Organization": {
+      "required": false
+    }
+  },
+  "Tag-Files-Required": []
+}
