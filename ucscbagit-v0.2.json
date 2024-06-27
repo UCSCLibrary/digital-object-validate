@@ -1,0 +1,319 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "appSettings": [],
+  "bagItProfiles": [
+    {
+      "id": "52951208-81f8-44bc-87e9-a7ab6695c6be",
+      "name": "UCSC",
+      "description": "Profile for digitized and born-digital material from UC Santa Cruz Library Special Collections",
+      "acceptBagItVersion": [
+        "0.97",
+        "1.0"
+      ],
+      "acceptSerialization": [
+        "application/tar"
+      ],
+      "allowFetchTxt": false,
+      "bagItProfileInfo": {
+        "bagItProfileIdentifier": "https://github.com/UCSCLibrary/digital-object-validate/blob/main/ucscbagit-v0.2.json",
+        "bagItProfileVersion": "1.3.0",
+        "contactEmail": "speccoll@library.ucsc.edu",
+        "contactName": "Susan Chesley Perry",
+        "externalDescription": "Bagit Profile for UCSC Library Digitally Preserved Archival Content",
+        "sourceOrganization": "University of California Santa Cruz Library",
+        "version": "0.2"
+      },
+      "manifestsRequired": [
+        "md5"
+      ],
+      "manifestsAllowed": [
+        "md5"
+      ],
+      "tagManifestsRequired": [],
+      "tagManifestsAllowed": [
+        "md5"
+      ],
+      "tagFilesAllowed": [
+        "*"
+      ],
+      "tags": [
+        {
+          "id": "5766b0c4-8adb-4e2f-9ecb-ca617776e0d5",
+          "tagFile": "bagit.txt",
+          "tagName": "BagIt-Version",
+          "required": true,
+          "values": [
+            "0.97",
+            "1.0"
+          ],
+          "defaultValue": "0.97",
+          "userValue": "",
+          "help": "Which version of the BagIt specification describes this bag's format?",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "c7da373c-8207-4387-b102-406c573e35b5",
+          "tagFile": "bagit.txt",
+          "tagName": "Tag-File-Character-Encoding",
+          "required": true,
+          "values": [],
+          "defaultValue": "UTF-8",
+          "userValue": "",
+          "help": "How are this bag's plain-text tag files encoded? (Hint: usually UTF-8)",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "63d06d91-359a-477b-807f-42a0634f662f",
+          "tagFile": "bag-info.txt",
+          "tagName": "Bag-Count",
+          "required": false,
+          "values": [],
+          "defaultValue": null,
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "b90f0622-2115-49fa-ac7a-a987cd35ddfe",
+          "tagFile": "bag-info.txt",
+          "tagName": "Bag-Group-Identifier",
+          "required": false,
+          "values": [],
+          "defaultValue": null,
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "8241eff3-46b0-42a1-b6df-ce8a70eeb6b0",
+          "tagFile": "bag-info.txt",
+          "tagName": "Bag-Size",
+          "required": false,
+          "values": [],
+          "defaultValue": null,
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "4d1102fb-7835-4ab6-802c-e220f073605b",
+          "tagFile": "bag-info.txt",
+          "tagName": "Bagging-Date",
+          "required": false,
+          "values": [],
+          "defaultValue": "",
+          "userValue": "",
+          "help": "yyyy-mm-dd",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "19c249c7-0497-4b7b-a53d-7ea267b3e069",
+          "tagFile": "bag-info.txt",
+          "tagName": "Bagging-Software",
+          "required": false,
+          "values": [],
+          "defaultValue": "",
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "fc5f227c-4d01-477a-b4d7-31dda5e881e9",
+          "tagFile": "bag-info.txt",
+          "tagName": "Contact-Email",
+          "required": false,
+          "values": [],
+          "defaultValue": "speccoll@library.ucsc.edu",
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "3a7a3491-f45d-4aae-9953-7fde2230f390",
+          "tagFile": "bag-info.txt",
+          "tagName": "Contact-Name",
+          "required": false,
+          "values": [],
+          "defaultValue": "University of California Santa Cruz Library",
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "0afd6260-35d8-4c5e-a0e9-8d09d72f49b1",
+          "tagFile": "bag-info.txt",
+          "tagName": "Contact-Phone",
+          "required": false,
+          "values": [],
+          "defaultValue": null,
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "7488bdd6-5c54-4bb0-9bab-7b67e9b1f5ce",
+          "tagFile": "bag-info.txt",
+          "tagName": "External-Description",
+          "required": false,
+          "values": [],
+          "defaultValue": "",
+          "userValue": "",
+          "help": "Title or description of bag contents",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "67408ff0-f497-4d94-a620-b5be285510ba",
+          "tagFile": "bag-info.txt",
+          "tagName": "External-Identifier",
+          "required": false,
+          "values": [],
+          "defaultValue": "",
+          "userValue": "",
+          "help": "accession number or call number, if available",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "13cc156a-8492-4688-bb9e-d509d5f030f8",
+          "tagFile": "bag-info.txt",
+          "tagName": "Internal-Sender-Description",
+          "required": false,
+          "values": [],
+          "defaultValue": null,
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "6ee3db40-c3e4-4c73-aa40-5b93276d3f1a",
+          "tagFile": "bag-info.txt",
+          "tagName": "Internal-Sender-Identifier",
+          "required": false,
+          "values": [],
+          "defaultValue": null,
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "ec53a321-6c95-49e4-aad2-7b04417a4a2a",
+          "tagFile": "bag-info.txt",
+          "tagName": "Organization-Address",
+          "required": false,
+          "values": [],
+          "defaultValue": null,
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "1e4bbee5-e78e-46c5-ad4c-88df23a4a923",
+          "tagFile": "bag-info.txt",
+          "tagName": "Payload-Oxum",
+          "required": false,
+          "values": [],
+          "defaultValue": "",
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "1721074d-68a8-4d1d-9806-f3080d76e03c",
+          "tagFile": "bag-info.txt",
+          "tagName": "Source-Organization",
+          "required": false,
+          "values": [],
+          "defaultValue": "University of California Santa Cruz Library",
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "cacf39cb-93f7-49b1-a6cf-e53a11303742",
+          "tagFile": "bag-info.txt",
+          "tagName": "Payload-Identifier",
+          "required": false,
+          "values": [],
+          "defaultValue": "",
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        },
+        {
+          "id": "0495b632-6f29-4283-ace0-89ce960afcf8",
+          "tagFile": "bag-info.txt",
+          "tagName": "Bag-Producing-Organization",
+          "required": false,
+          "values": [],
+          "defaultValue": "University of California Santa Cruz Library",
+          "userValue": "",
+          "help": "",
+          "isBuiltIn": false,
+          "isUserAddedFile": false,
+          "isUserAddedTag": false,
+          "wasAddedForJob": false
+        }
+      ],
+      "serialization": "forbidden",
+      "baseProfileId": "3fe09f70-84f2-4dae-a928-a846eea29648",
+      "isBuiltIn": false,
+      "tarDirMustMatchName": false
+    }
+  ],
+  "questions": [],
+  "remoteRepositories": [],
+  "storageServices": []
+}
