@@ -3,6 +3,9 @@
 
 
 """
+Forked from Bagit Profile Validator 1.3.1
+https://github.com/bagit-profiles/bagit-profiles-validator/tree/1.3.1
+
 A simple Python module for validating BagIt profiles. See
 https://github.com/bagit-profiles/bagit-profiles
 for more information.
@@ -242,17 +245,17 @@ class Profile(object):  # pylint: disable=useless-object-inheritance
             ignore_tag_case_help = " Set 'ignore_baginfo_tag_case' to True if you wish to ignore tag case."
 
         profile_id_tag = self.normalize_tag(self._baginfo_profile_id_tag)
-        if profile_id_tag not in bag_info:
-            self._fail(
-                ("%s: Required '%s' tag is not in bag-info.txt." + ignore_tag_case_help)
-                % (bag, self._baginfo_profile_id_tag)
-            )
-        else:
-            if bag_info[profile_id_tag] != self.url:
-                self._fail(
-                    "%s: '%s' tag does not contain this profile's URI: <%s> != <%s>"
-                    % (bag, profile_id_tag, bag_info[profile_id_tag], self.url)
-                )
+        #if profile_id_tag not in bag_info:
+        #    self._fail(
+        #        ("%s: Required '%s' tag is not in bag-info.txt." + ignore_tag_case_help)
+        #        % (bag, self._baginfo_profile_id_tag)
+        #    )
+        #else:
+        #    if bag_info[profile_id_tag] != self.url:
+        #        self._fail(
+        #            "%s: '%s' tag does not contain this profile's URI: <%s> != <%s>"
+        #            % (bag, profile_id_tag, bag_info[profile_id_tag], self.url)
+        #        )
         # Then, iterate through self.profile['Bag-Info'] and if a key has a dict containing a 'required' key that is
         # True, check to see if that key exists in bag.info.
         for tag in self.profile["Bag-Info"]:
