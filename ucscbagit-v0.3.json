@@ -56,10 +56,10 @@
       "required": false
     },
     "External-Description": {
-      "required": false
+      "required": true
     },
     "External-Identifier": {
-      "required": false
+      "required": true
     },
     "Internal-Sender-Description": {
       "required": false
@@ -80,7 +80,7 @@
       "required": false
     },
     "Bag-Producing-Organization": {
-      "required": false
+      "required": true
     }
   },
   "Tag-Files-Required": []
