@@ -591,17 +591,17 @@ def _main():
     # Validate 'Serialization' and 'Accept-Serialization', then perform general validation.
     if "serialization" not in args.skip:
         if profile.validate_serialization(bagit_path):
-            print(u"✓ Serialization validates")
+            print(u"✓ Serialization is valid")
         else:
-            print(u"✗ Serialization does not validate")
+            print(u"✗ Serialization is not valid!")
             sys.exit(1)
 
     # Validate the rest of the profile.
     if "profile" not in args.skip:
         if profile.validate(bag):
-            print(u"✓ Validates against %s" % profile_url)
+            print(u"✓",bagit_path,"validated")
         else:
-            print(u"✗ Does not validate against %s" % profile_url)
+            print(u"✗",bagit_path,"does not validate!")
             if args.report:
                 print(profile.report)
             sys.exit(2)
