@@ -8,7 +8,7 @@ WORKDIR /app
 
 # Copy source files
 COPY bagit_profile.py .
-COPY entrypoint.py .
+COPY entry_point.py .
 COPY requirements.txt .
 COPY ucscbagit-v0.3.json .
 
