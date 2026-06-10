@@ -1,0 +1,4 @@
+boto3==1.34.125
+bagit==1.8.1
+requests==2.32.3
+zipstream-new==1.1.8
