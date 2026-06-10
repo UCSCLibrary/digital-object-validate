@@ -4,11 +4,18 @@
 import os
 import sys
 import boto3
+import logging
 import requests
 import zipfile
 import zipstream
 from concurrent.futures import ThreadPoolExecutor
 from boto3.s3.transfer import TransferConfig
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
 
 def main():
 
@@ -23,16 +30,16 @@ def main():
     
     os.makedirs(local_dir, exist_ok=True)
 
-    print(f"Downloading s3://{bucket_in}/{folder} to {local_dir}...")
+    logging.info(f"Downloading s3://{bucket_in}/{folder}")
     try:
         download_folder(bucket_in, folder, local_dir)
-        print("Download successful")
+        logging.info("Download successful")
 
     except Exception as e:
-        print(f"Download Failed: {str(e)}")
+        logging.error(f"Download Failed: {str(e)}")
         sys.exit(1)
 
-    print("Beginning BagIt validation...")
+    logging.info("Beginning BagIt validation...")
     try:
         result = subprocess.run(
             ["python3", "./bagit_profile.py", "--file", bagit_profile, bagit_profile, local_dir],
@@ -42,17 +49,17 @@ def main():
         )
         
         if result.stdout:
-            print(result.stdout)
-        print("Validation Successful.")
+            logging.info(result.stdout)
+        logging.info("BagIt validation Successful.")
             
     except subprocess.CalledProcessError as e:
-        print(f"Validation Failed with exit code {e.returncode}.")
-        print(f"Standard Error:\n{e.stderr}")
+        logging.error(f"BagIt validation Failed with exit code {e.returncode}.")
+        logging.error(f"Standard Error:\n{e.stderr}")
         if e.stdout:
-            print(f"Standard Output:\n{e.stdout}")
+            logging.info(f"Standard Output:\n{e.stdout}")
         sys.exit(1)
 
-    print(f"Streaming uncompressed zip to s3://{bucket_out}/{output_zip}...")
+    logging.info(f"Streaming uncompressed zip to s3://{bucket_out}/{output_zip}")
     zs = zipstream.ZipFile(mode='w', compression=zipfile.ZIP_STORED)
     for root, _, files in os.walk(local_dir):
         for file in files:
@@ -60,14 +67,13 @@ def main():
             arcname = os.path.relpath(full_path, local_dir)
             zs.write(full_path, arcname=arcname)
             
-    # Multipart upload stream with a 'Pending' tracking tag for your manual review system
     s3.upload_fileobj(
         zs, 
         bucket_out, 
         output_zip,
-        ExtraArgs={"Tagging": "ReviewStatus=Pending"}
+        ExtraArgs={"Tagging": "status=validated"} # use a tag for future workflow improvements
     )
-    print("Process Complete.")
+    logging.info(f"End processing: {folder}")
 
 def download_folder(bucket, folder, local_dir):
     s3 = boto3.client('s3')
@@ -94,7 +100,7 @@ def download_folder(bucket, folder, local_dir):
             files.append((key, dest_path))
 
     # Download files concurrently using a thread worker pool
-    print(f"Spinning up worker pool to download {len(files)} files...")
+    logging.info(f"Spinning up worker pool to download {len(files)} files...")
     with ThreadPoolExecutor(max_workers=8) as executor:
         tasks = [
             executor.submit(
