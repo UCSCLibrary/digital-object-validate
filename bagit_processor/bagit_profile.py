@@ -525,7 +525,7 @@ def _main():
     parser.add_argument(
         "--version",
         action="version",
-        version="%(prog)s, v" + get_distribution("bagit_profile").version,
+        version="%(prog)s, v1.3.1",
     )
     parser.add_argument(
         "--quiet",
