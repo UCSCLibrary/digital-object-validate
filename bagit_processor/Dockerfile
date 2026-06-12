@@ -20,4 +20,4 @@ RUN useradd -u 8888 worker && \
     chown -R worker:worker /app
 USER worker
 
-ENTRYPOINT ["python", "entrypoint.py"]
+CMD ["python3", "entry_point.py"]
