@@ -57,16 +57,14 @@ def main():
     
     os.makedirs(local_dir, exist_ok=True)
 
-    logging.info(f"Downloading s3://{bucket_in}/{folder}")
+    logging.info(f"Begin processing: {folder}")
     try:
         download_folder(bucket_in, folder, local_dir)
-        logging.info("Download successful")
 
     except Exception as e:
         logging.error(f"Download Failed: {str(e)}")
         sys.exit(1)
 
-    logging.info("Beginning BagIt validation...")
     try:
         result = subprocess.run(
             ["python3", "./bagit_profile.py", "--file", bagit_profile, bagit_profile, local_dir],
@@ -77,17 +75,17 @@ def main():
         
         if result.stdout:
             logging.info(result.stdout)
-        logging.info("BagIt validation Successful.")
+        logging.info(f"RESULT: {folder} BagIt validation successful.")
             
     except subprocess.CalledProcessError as e:
-        logging.error(f"BagIt validation Failed with exit code {e.returncode}.")
+        logging.error(f"RESULT: {folder} BagIt validation Failed with exit code {e.returncode}.")
         logging.error(f"Standard Error:\n{e.stderr}")
         if e.stdout:
             logging.info(f"Standard Output:\n{e.stdout}")
         sys.exit(1)
 
     logging.info(f"Streaming uncompressed zip to s3://{bucket_out}/{output_zip}")
-    zs = zipstream.ZipFile(mode='w', compression=zipfile.ZIP_STORED, allowZip64=True)
+    zs = zipstream.ZipFile(mode='w', compression=zipfile.ZIP_DEFLATED, compresslevel=1, allowZip64=True)
     for root, _, files in os.walk(local_dir):
         for file in files:
             full_path = os.path.join(root, file)
@@ -133,7 +131,7 @@ def download_folder(bucket, folder, local_dir):
             files.append((key, dest_path))
 
     # Download up to 5 files concurrently using a thread worker pool
-    logging.info(f"Found {len(files)} files. Setting up concurrent download.")
+    logging.info(f"Found {len(files)} files. Setting up concurrent download...")
     with ThreadPoolExecutor(max_workers=5) as executor:
         tasks = [
             executor.submit(
