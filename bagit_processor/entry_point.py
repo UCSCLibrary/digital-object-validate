@@ -8,7 +8,7 @@ import logging
 import requests
 import subprocess
 import zipfile
-import zipstream
+from zipstream import ZipStream, ZIP_DEFLATED
 from concurrent.futures import ThreadPoolExecutor
 from botocore.config import Config
 from boto3.s3.transfer import TransferConfig
@@ -85,12 +85,13 @@ def main():
         sys.exit(1)
 
     logging.info(f"Streaming uncompressed zip to s3://{bucket_out}/{output_zip}")
-    zs = zipstream.ZipFile(mode='w', compression=zipfile.ZIP_DEFLATED, compresslevel=1, allowZip64=True)
+    zs = ZipStream(compress_type=ZIP_DEFLATED, compress_level=1)
+
     for root, _, files in os.walk(local_dir):
         for file in files:
             full_path = os.path.join(root, file)
             arcname = os.path.relpath(full_path, local_dir)
-            zs.write(full_path, arcname=arcname)
+            zs.add_path(full_path, arcname)
     
     zip_stream_adapter = StreamAdapter(zs)
 
